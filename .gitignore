@@ -1,0 +1,40 @@
+# Common
+node_modules/
+dist/
+.env
+.DS_Store
+
+# NewsAPI (.NET)
+NewsAPI/bin/
+NewsAPI/obj/
+NewsAPI/*.user
+NewsAPI/*.suo
+NewsAPI/*.csproj.user
+NewsAPI/*.vspscc
+NewsAPI/*.vssscc
+NewsAPI/.vs/
+NewsAPI/TestResults/
+NewsAPI/packages/
+NewsAPI/*.ncrunch*
+NewsAPI/*.localhistory/
+NewsAPI/*.resharper*
+NewsAPI/*.DotSettings.user
+NewsAPI/*.idea/
+NewsAPI/*.vscode/
+
+# NewsSPA (Vue.js)
+NewsSPA/node_modules/
+NewsSPA/dist/
+NewsSPA/.env.local
+NewsSPA/.env.development.local
+NewsSPA/.env.test.local
+NewsSPA/.env.production.local
+NewsSPA/npm-debug.log*
+NewsSPA/yarn-error.log*
+NewsSPA/pnpm-debug.log*
+NewsSPA/.nuxt/
+NewsSPA/.output/
+NewsSPA/.vitepress/dist/
+NewsSPA/.cache/
+NewsSPA/.eslintcache
+NewsSPA/.vscode/
