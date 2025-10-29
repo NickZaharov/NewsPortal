@@ -9,6 +9,6 @@
 
 2. **newsfrontend** — Vue SPA
 
-3. **redis** — кэш-сервер
+3. **redis** — cache server
    
 ---
