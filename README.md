@@ -1,9 +1,9 @@
 # NewsPortal
 
-- 🧱 **Backend** на ASP.NET Core (`NewsAPI`)
-- 🌐 **Frontend** на Vue 3 + Vite (`NewsSPA`)
+- 🧱 **Backend** - ASP.NET Core (`NewsAPI`)
+- 🌐 **Frontend** - Vue 3 + Vite (`NewsSPA`)
 
-## 🐳 Docker-контейнеры
+## 🐳 Docker containers
 
 1. **newsapi** — ASP.NET Core API  
 
