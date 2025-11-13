@@ -9,12 +9,16 @@ namespace NewsAPI
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllers();
-            
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Configuration
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables();
+
             // My services
-            builder.Services.AddProjectServices();
+            builder.Services.AddProjectServices(builder);
 
             var app = builder.Build();
 

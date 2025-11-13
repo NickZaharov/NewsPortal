@@ -35,7 +35,7 @@ onMounted(fetchNews)
 }
 
 .title-box {
-  background-image: url('https://www.datamanagement365.com/wp-content/themes/dm365/assets/images/dist/news.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2020/08/14/09/36/news-5487368_1280.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -58,7 +58,7 @@ onMounted(fetchNews)
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(100, 100, 100, 0.5);
 }
 
 .loader-container {

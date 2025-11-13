@@ -1,7 +1,4 @@
-﻿using System.Reflection;
-using System.Text.Json.Serialization;
-
-namespace NewsAPI.Models
+﻿namespace NewsAPI.Models
 {
     public class NewsItem
     {

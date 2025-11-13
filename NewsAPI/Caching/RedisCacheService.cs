@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NewsAPI.Caching
+﻿namespace NewsAPI.Caching
 {
     using Microsoft.Extensions.Caching.Distributed;
     using System.Text.Json;

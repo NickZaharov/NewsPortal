@@ -1,5 +1,4 @@
 ﻿using NewsAPI.Models;
-using System;
 
 namespace NewsAPI.Services
 {

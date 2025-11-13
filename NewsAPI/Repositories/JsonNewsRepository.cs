@@ -14,9 +14,15 @@ namespace NewsAPI.Repositories
 
         public async Task<IReadOnlyList<NewsItem>> GetAll()
         {
+            if (!File.Exists(_filePath))
+            {
+                return Array.Empty<NewsItem>();
+            }
+
             var json = await File.ReadAllTextAsync(_filePath);
             return JsonSerializer.Deserialize<List<NewsItem>>(json);
         }
-    }
 
+
+    }
 }

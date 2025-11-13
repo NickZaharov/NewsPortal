@@ -1,7 +1,7 @@
 @echo off
+
 setlocal
-cd NewsSPA
+
+cd /d "%~dp0"
 
 npm run dev
-
-

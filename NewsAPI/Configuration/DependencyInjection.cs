@@ -6,19 +6,26 @@ namespace NewsAPI.Configuration
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddProjectServices(this IServiceCollection services)
+        public static IServiceCollection AddProjectServices(this IServiceCollection services, WebApplicationBuilder builder)
         {
             services.AddScoped<INewsService, NewsService>();
 
-            services.AddScoped<ICacheService, RedisCacheService>();
-
             services.AddSingleton<INewsRepository, JsonNewsRepository>();
 
-            services.AddStackExchangeRedisCache(options =>
+            if (builder.Configuration.GetValue<bool>("UseRedis"))
             {
-                options.Configuration = "redis:6379";
-                options.InstanceName = "Cache";
-            });
+                services.AddStackExchangeRedisCache(options =>
+                {
+                    options.Configuration = "redis:6379";
+                    options.InstanceName = "Cache";
+                });
+
+                services.AddSingleton<ICacheService, RedisCacheService>();
+            }
+            else
+            {
+                services.AddSingleton<ICacheService, NoOpCacheService>();
+            }
 
             services.AddCors(options =>
             {

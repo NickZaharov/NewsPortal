@@ -44,8 +44,7 @@ const formattedDate = computed(() => {
 }
 
 .news-image img {
-  width: 360;
-  height: 240;
+  max-width: 360px;
   border-radius: 4px;
   object-fit: cover;
 }
