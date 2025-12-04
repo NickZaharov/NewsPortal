@@ -14,10 +14,7 @@ namespace NewsAPI.Configuration
             services.AddSingleton<INewsRepository, JsonNewsRepository>();
 
             services.AddHealthChecks()
-                // Liveness: проверка самого приложения
-                .AddCheck("self", () => HealthCheckResult.Healthy("App is alive"), tags: new[] { "liveness" })
-                // Readiness: проверка Redis
-                .AddRedis(builder.Configuration.GetConnectionString("Redis"), name: "redis", tags: new[] { "readiness" });
+                .AddCheck("self", () => HealthCheckResult.Healthy("App is alive"), tags: new[] { "liveness" });
 
             if (builder.Configuration.GetValue<bool>("UseRedis"))
             {
