@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using NewsAPI.Configuration;
 
 namespace NewsAPI
@@ -23,6 +24,12 @@ namespace NewsAPI
             var app = builder.Build();
 
             app.UseCors("AllowVue");
+
+            // HealthCheck
+            app.MapHealthChecks("/health/live", new HealthCheckOptions
+            {
+                Predicate = check => check.Tags.Contains("liveness")
+            });
 
             if (app.Environment.IsDevelopment())
             {

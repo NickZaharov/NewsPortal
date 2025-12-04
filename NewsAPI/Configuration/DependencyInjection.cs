@@ -1,4 +1,5 @@
-﻿using NewsAPI.Caching;
+﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
+using NewsAPI.Caching;
 using NewsAPI.Repositories;
 using NewsAPI.Services;
 
@@ -12,11 +13,17 @@ namespace NewsAPI.Configuration
 
             services.AddSingleton<INewsRepository, JsonNewsRepository>();
 
+            services.AddHealthChecks()
+                // Liveness: проверка самого приложения
+                .AddCheck("self", () => HealthCheckResult.Healthy("App is alive"), tags: new[] { "liveness" })
+                // Readiness: проверка Redis
+                .AddRedis(builder.Configuration.GetConnectionString("Redis"), name: "redis", tags: new[] { "readiness" });
+
             if (builder.Configuration.GetValue<bool>("UseRedis"))
             {
                 services.AddStackExchangeRedisCache(options =>
                 {
-                    options.Configuration = "redis:6379";
+                    options.Configuration = builder.Configuration.GetConnectionString("Redis");
                     options.InstanceName = "Cache";
                 });
 
